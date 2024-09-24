@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">My Institute</string>
+    <string name="tripura_institute_of_technology">Tripura Institute Of Technology</string>
+    <string name="app_logo">App Logo</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register_now">Register Now</string>
+    <string name="doesn_t_have_an_account">Doesn\'t have an account?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="are_you_a_teacher">Are you a teacher?</string>
+
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="branch">Branch</string>
+
+    <!-- Spinner branches -->
+    <string-array name="branch_array">
+        <item>Electrical Engineering</item>
+        <item>Computer Science Engineering</item>
+        <item>Mechanical Engineering</item>
+        <item>Electronics and Communication Engineering</item>
+        <item>Civil Engineering</item>
+    </string-array>
 </resources>

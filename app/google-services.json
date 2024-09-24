@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159201910261",
+    "project_id": "my-institute-e27d1",
+    "storage_bucket": "my-institute-e27d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159201910261:android:3e6303a997858c4ca814bc",
+        "android_client_info": {
+          "package_name": "com.nrh.myinstitutetit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0k3DZ2d2LlQJ-OZDOeWfxDPYdEwcpTEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
