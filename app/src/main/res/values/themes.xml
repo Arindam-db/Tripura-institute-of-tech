@@ -21,6 +21,15 @@
     </style>
     <style name="TextInputEditTextWhiteText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textColor">@color/white</item>
+
+
+
+    </style>
+
+    <style name="LightBlackTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/light_black</item>
+        <item name="hintTextColor">@color/light_black</item>
+        <item name="textFillColor">@color/light_black</item>
     </style>
 
 </resources>
