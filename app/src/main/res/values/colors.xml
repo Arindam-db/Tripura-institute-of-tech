@@ -6,4 +6,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_20">#72FDFDFD</color>
     <color name="purple_500">#FF0066</color>
+    <color name="btn_color">#FFE5A3</color>
 </resources>
