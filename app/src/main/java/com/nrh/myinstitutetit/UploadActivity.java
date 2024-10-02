@@ -102,9 +102,9 @@ public class UploadActivity extends AppCompatActivity {
 
         imageReference.putFile(uri).addOnSuccessListener(taskSnapshot ->
                         imageReference.getDownloadUrl().addOnSuccessListener(uri1 -> {
-                            DataClass dataClass = new DataClass(uri1.toString(), caption);
-                            String key = databaseReference.push().getKey();
+                            String key = databaseReference.push().getKey(); // Get the key here
                             if (key != null) {
+                                DataClass dataClass = new DataClass(uri1.toString(), caption, key); // Pass the key to the constructor
                                 databaseReference.child(key).setValue(dataClass);
                             }
                             progressBar.setVisibility(View.INVISIBLE);

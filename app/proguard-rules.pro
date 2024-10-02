@@ -12,6 +12,10 @@
 #   public *;
 #}
 
+-keep public class com.nrh.myinstitutetit.DataClass {
+    public <init>();
+}
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
