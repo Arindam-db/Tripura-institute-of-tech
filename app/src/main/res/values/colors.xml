@@ -7,4 +7,5 @@
     <color name="white_20">#72FDFDFD</color>
     <color name="purple_500">#FF0066</color>
     <color name="btn_color">#FFE5A3</color>
+    <color name="nav_bar_color">#CB6F5D00</color>
 </resources>

@@ -35,6 +35,8 @@ public class HomePage extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_NavView);
         frameLayout = findViewById(R.id.frame_layout);
 
+        bottomNavigationView.setBackgroundColor(getResources().getColor(R.color.nav_bar_color));
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

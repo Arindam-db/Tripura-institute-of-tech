@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".Feeds">
 
-
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45dp"
+        android:layout_margin="8dp"
+        android:layout_gravity="left"
+        android:fontFamily="@font/andika"
+        android:textStyle="bold"
+        android:textColor="@color/light_black"
+        android:text="Feeds"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_feed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Feeds"
-        android:gravity="center"/>
+        android:layout_marginTop="120dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="45dp"
+        android:clickable="true"
+        android:src="@drawable/baseline_add_24" />
+
 
 </FrameLayout>
