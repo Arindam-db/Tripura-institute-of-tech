@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,15 +50,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         // Handle delete button click
         holder.deleteButton.setOnClickListener(v -> {
-            // Remove item from Firebase
-            deleteItemFromFirebase(data);
-
-            // Remove item from local list
-            dataList.remove(position);
-
-            // Notify adapter that item has been removed
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position, dataList.size()); // Update the positions of remaining items
+            // Remove item from Firebase using its unique key
+            deleteItemFromFirebase(data.getKey(), position);
         });
     }
 
@@ -67,22 +61,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     // Method to delete the item from Firebase
-    private void deleteItemFromFirebase(DataClass data) {
-        // Assuming each item has a unique key in Firebase
-        databaseReference.orderByChild("imageURL").equalTo(data.getImageUrl())
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            snapshot.getRef().removeValue(); // Remove the item from Firebase
-                        }
-                    }
+    private void deleteItemFromFirebase(String key, int position) {
+        databaseReference.child(key).removeValue().addOnSuccessListener(aVoid -> {
+            // Remove item from local list
+            dataList.remove(position);
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        // Handle possible errors
-                    }
-                });
+            // Notify adapter that item has been removed
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, dataList.size()); // Update the positions of remaining items
+        }).addOnFailureListener(e -> {
+            // Handle errors
+            Toast.makeText(context, "Error deleting item: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

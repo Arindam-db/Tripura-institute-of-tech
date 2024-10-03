@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Profile">
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
 
-    <TextView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/form_holder_color"
+        app:cardElevation="4dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:backgroundTint="@color/nav_bar_color"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/baseline_account_circle_24" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/txt_black"
+                android:fontFamily="@font/andika"
+                android:layout_marginTop="16dp"
+                android:text="User Name"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_width="wrap_content"
+                android:textSize="12dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_black"
+                android:fontFamily="@font/andika"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="user@example.com" />
+
+            <TextView
+                android:id="@+id/profile_branch"
+                android:layout_width="wrap_content"
+                android:textSize="12dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/txt_black"
+                android:fontFamily="@font/andika"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="Example branch" />
+
+            <Button
+                android:id="@+id/logout_button"
+                android:backgroundTint="@color/btn_color"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/andika"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Logout" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

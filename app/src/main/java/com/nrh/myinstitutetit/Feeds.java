@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;public class Feeds extends Fragment {
 
     FloatingActionButton fab;
@@ -59,25 +60,27 @@ import java.util.List;public class Feeds extends Fragment {
 
     private void fetchImagesAndCaptions() {
         swipeRefreshLayout.setRefreshing(true); // Show refresh indicator
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 dataList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DataClass data = snapshot.getValue(DataClass.class);
-                    if (data != null) {
+                    if (data != null && data.getImageUrl() != null && !data.getImageUrl().isEmpty()) {
                         dataList.add(data);
                     }
                 }
+
+                Collections.reverse(dataList); // Reverse the list
+
                 myAdapter.notifyDataSetChanged();
-                // Notify the adapter that the data has changed
-                swipeRefreshLayout.setRefreshing(false); // Hide refresh indicator
-            }
+                swipeRefreshLayout.setRefreshing(false);}
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle errors
-                swipeRefreshLayout.setRefreshing(false); // Hide refresh indicator
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
     }

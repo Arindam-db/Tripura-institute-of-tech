@@ -1,5 +1,7 @@
 package com.nrh.myinstitutetit;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -31,6 +33,19 @@ public class HomePage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        // Check login state
+        SharedPreferences prefs = getSharedPreferences(Login.getPrefsName(), MODE_PRIVATE);
+        boolean isLoggedIn = prefs.getBoolean(Login.getKeyIsLoggedIn(), false);
+
+        if (!isLoggedIn) {
+            // User is not logged in, redirect to Login activity
+            Intent intent = new Intent(HomePage.this, Login.class);
+            startActivity(intent);
+            finish(); // Close HomePage activity
+        }
+
 
         bottomNavigationView = findViewById(R.id.bottom_NavView);
         frameLayout = findViewById(R.id.frame_layout);

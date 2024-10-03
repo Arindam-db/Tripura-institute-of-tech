@@ -1,5 +1,7 @@
 package com.nrh.myinstitutetit;
 
+//for storing sensitive data like name passwords email branch
+
 public class HelperClass {
     String name, email, password, branch;
 

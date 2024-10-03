@@ -1,5 +1,7 @@
 package com.nrh.myinstitutetit;
 
+// for storing data in the feeds section of the app
+
 public class DataClass {
 
     private String imageUrl;
