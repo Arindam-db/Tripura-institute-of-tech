@@ -1,5 +1,6 @@
 package com.nrh.myinstitutetit;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -44,14 +42,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         DataClass data = dataList.get(position);
 
-        // Load image using Glide or Picasso
+        // Load image using Glide
         Glide.with(context).load(data.getImageUrl()).into(holder.recyclerImage);
         holder.recyclerCaption.setText(data.getCaption());
 
-        // Handle delete button click
+        // Handle delete button click with confirmation
         holder.deleteButton.setOnClickListener(v -> {
-            // Remove item from Firebase using its unique key
-            deleteItemFromFirebase(data.getKey(), position);
+            // Show confirmation dialog before deleting
+            new AlertDialog.Builder(context)
+                    .setTitle("Confirm Delete")
+                    .setMessage("Are you sure you want to delete this item?")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        // Delete the item if confirmed
+                        deleteItemFromFirebase(data.getKey(), position);
+                    })
+                    .setNegativeButton("No", (dialog, which) -> {
+                        // Dismiss the dialog if canceled
+                        dialog.dismiss();
+                    })
+                    .show();
         });
     }
 
