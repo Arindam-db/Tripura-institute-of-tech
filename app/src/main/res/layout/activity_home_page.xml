@@ -19,7 +19,8 @@
         android:id="@+id/bottom_NavView"
         android:layout_width="match_parent"
         app:menu="@menu/bottom_nav_menu"
-        android:backgroundTint="@color/nav_bar_color"
+        android:backgroundTint="@color/btn_color"
+        app:itemTextColor="@color/txt_black"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

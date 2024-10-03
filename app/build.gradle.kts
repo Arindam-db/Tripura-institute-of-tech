@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation (libs.glide)
     implementation(libs.swiperefreshlayout)
+    implementation (libs.gson)
+    implementation(libs.firebase.messaging)
     annotationProcessor (libs.compiler)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
